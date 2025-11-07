@@ -1,7 +1,7 @@
 import express from "express"
-import client = require("./generated/prisma/client");
+import { PrismaClient } from "./generated/prisma/client.js";
 const app = express();
-const prismaClient = new client.PrismaClient();
+const prismaClient = new PrismaClient();
 app.get("/", async (req: any, res: any) => {
 
     const data = await prismaClient.user.findMany();
