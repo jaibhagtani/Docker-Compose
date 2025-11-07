@@ -16,11 +16,11 @@
 - Install Docker 
 - Start a new Network `docker network create user_network`
 - Start Postgres
-    - `docker run --name postgres_db2 --network user_network -e POSTGRES_PASSWORD=pass -d -p 5432:5432 postgres`
+    - `docker run --name postgres_db3 --network user_network -e POSTGRES_PASSWORD=pass -d -p 5432:5432 postgres`
 (build step is also inside container only) -> without network
 - Build the image - `docker build --network=host -t user-project .`
 (but now it is happening on host machine)
-- Start the image - `docker run -e DATABASE_URL=postgres://postgres:pass@postgres_db2:5432/postgres --network user_network -p 3000:3000 user-project`
+- Start the image - `docker run -e DATABASE_URL=postgres://postgres:pass@postgres_db3:5432/postgres --network user_network -p 3000:3000 user-project`
 
 
 ## Docker-compose Installation
